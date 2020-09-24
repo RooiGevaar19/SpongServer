@@ -74,4 +74,12 @@ public class LoginController {
         return modelAndView;
     }
 
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public ModelAndView hello() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("hello");
+        return modelAndView;
+    }
+
 }

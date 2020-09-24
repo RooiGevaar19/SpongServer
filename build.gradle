@@ -9,7 +9,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 apply plugin: 'application'
-// mainClassName = 'spong.domain.SpongApplication'
+mainClassName = 'spong.SpongApplication'
 
 configurations {
 	compileOnly {
@@ -18,7 +18,9 @@ configurations {
 }
 
 repositories {
-	mavenCentral()
+	jcenter()
+    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -30,6 +32,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 	//implementation 'org.springframework.session:spring-session-jdbc'
 	compileOnly 'org.projectlombok:lombok'
@@ -39,6 +42,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile "joda-time:joda-time:2.2"
+    compile "com.domingosuarez.boot:jade4j-spring-boot-starter:2.0.4.RELEASE"
 }
 
 test {
