@@ -70,6 +70,10 @@ public class LoginController {
     @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("fullName", "Welcome " + user.getFullname());
+        modelAndView.addObject("currentUser", user);
         modelAndView.setViewName("home");
         return modelAndView;
     }
