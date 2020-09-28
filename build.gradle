@@ -33,7 +33,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
+    //compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 	//implementation 'org.springframework.session:spring-session-jdbc'
 	compileOnly 'org.projectlombok:lombok'
