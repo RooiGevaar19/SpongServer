@@ -18,13 +18,14 @@ html(xmlns="http://www.w3.org/1999/xhtml", xmlns:th="http://www.thymeleaf.org", 
                         span.sr-only (current)
                 ul.navbar-nav.ml-auto
                     if currentUser
-                        li.nav-item(th:if="${currentUser}")
-                            a.nav-link(th:text="${fullName}")
-                            form(th:action="@{/logout}", method="post")
+                        li.nav-item
+                            //a.nav-link= fullName
+                            a.nav-link= currentUser.fullname
+                            form(action="/logout", method="post")
                                 input(type="submit", value="Sign Out")
                     else
-                        li.nav-item(th:if="${currentUser == null}") 
-                            a.nav-link(th:href="@{/login}") Log in
+                        li.nav-item
+                            a.nav-link(href="/login") Log in
                     
 
         div.container

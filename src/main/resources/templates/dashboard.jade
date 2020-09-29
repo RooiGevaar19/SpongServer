@@ -1,0 +1,19 @@
+extend default
+
+block title
+    title spongo
+
+block scripts
+    //script(type="text/javascript", src="/bid_engine.js")
+
+block content
+    if currentUser
+        h1 
+            | Hello 
+            a= currentUser.email
+            | !
+        h2 This is your Admin Dashboard
+        p 
+            | Click 
+            a(href="/hello") here
+            |  to see a greeting.

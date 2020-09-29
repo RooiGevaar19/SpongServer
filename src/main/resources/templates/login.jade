@@ -1,0 +1,23 @@
+extend default
+
+block title
+    title Log in to spongo
+
+block scripts
+    //script(type="text/javascript", src="/bid_engine.js")
+
+block content
+    form.form-signin(action="/login", method="post")
+        img.mb-4(src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg", alt="", width="72", height="72")
+        h1.h3.mb-3.font-weight-normal Please sign in
+        if param.error
+            div Invalid email and password.
+        if param.logout
+            div You have been logged out.
+        label.sr-only(for="inputEmail") Email address
+        input.form-control(id="inputEmail", name="email", type="email", placeholder="Email", required="")
+        label.sr-only(for="inputPassword") Password
+        input.form-control(id="inputPassword", name="password", type="password", placeholder="Password", required="")
+        button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+    form.form-signin(action="/signup", method="get")
+        button.btn.btn-md.btn-success.btn-block(type="submit") Sign up here

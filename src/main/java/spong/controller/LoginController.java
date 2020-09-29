@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 @Controller
 public class LoginController {
     @Autowired
@@ -60,7 +63,9 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        //Gson gson = new GsonBuilder().serializeSpecialFloatingPointValues().serializeNulls().create(); 
         modelAndView.addObject("currentUser", user);
+        //modelAndView.addObject("currentUser", gson.toJson(user));
         modelAndView.addObject("fullName", "Welcome " + user.getFullname());
         modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
         modelAndView.setViewName("dashboard");
@@ -74,7 +79,10 @@ public class LoginController {
         User user = userService.findUserByEmail(auth.getName());
         if (user != null) {
             modelAndView.addObject("fullName", "Welcome " + user.getFullname());
+            //Gson gson = new GsonBuilder().serializeSpecialFloatingPointValues().serializeNulls().create(); 
+            //System.out.println(gson.toJson(user));
             modelAndView.addObject("currentUser", user);
+            //modelAndView.addObject("currentUser", gson.toJson(user));
         } 
         modelAndView.setViewName("home");
         return modelAndView;
